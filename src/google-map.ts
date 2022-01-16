@@ -3,6 +3,8 @@ import { customElement, property, state, query } from 'lit/decorators.js';
 import { Loader } from '@googlemaps/js-api-loader';
 import { GoogleMapMarker } from './GoogleMapMarker';
 
+export { GoogleMapMarker } from './GoogleMapMarker';
+
 @customElement('google-map')
 export class MyElement extends LitElement {
   static styles = css`
