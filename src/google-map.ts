@@ -27,6 +27,12 @@ export class MyElement extends LitElement {
   @property({ type: Number })
   lng: number = 0;
 
+  @property({ type: Number })
+  zoom = 10;
+
+  @property({ type: Array })
+  styles;
+
   @state()
   loader!: Loader;
 
@@ -44,6 +50,10 @@ export class MyElement extends LitElement {
     this._init();
   }
 
+  disconnectedCallback(): void {
+    super.disconnectedCallback();
+  }
+
   private _init() {
     this.loader = new Loader({
       apiKey: this.apiKey,
@@ -52,7 +62,8 @@ export class MyElement extends LitElement {
     this.loader.load().then(() => {
       this.map = new google.maps.Map(this.mapContainer, {
         center: { lat: this.lat, lng: this.lng },
-        zoom: 13,
+        zoom: this.zoom,
+        styles: this.styles,
       });
     });
   }
