@@ -6,7 +6,7 @@ import { GoogleMapMarker } from './GoogleMapMarker';
 export { GoogleMapMarker } from './GoogleMapMarker';
 
 @customElement('google-map')
-export class MyElement extends LitElement {
+export class GoogleMap extends LitElement {
   static styles = css`
     :host {
       display: block;
@@ -69,7 +69,7 @@ export class MyElement extends LitElement {
   }
 
   render() {
-    return html` <div id="map"></div> `;
+    return html`<div id="map"></div> `;
   }
 
   public addMarkers(markers: GoogleMapMarker[]) {
@@ -94,6 +94,6 @@ export class MyElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'google-map': MyElement;
+    'google-map': GoogleMap;
   }
 }
