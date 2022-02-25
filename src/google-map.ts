@@ -9,7 +9,7 @@ export { GoogleMapMarker } from './GoogleMapMarker';
 export class MyElement extends LitElement {
   static styles = css`
     :host {
-      display: flex;
+      display: block;
     }
 
     #map {
@@ -21,17 +21,17 @@ export class MyElement extends LitElement {
   @property({ type: String, reflect: true, attribute: 'apikey' })
   apiKey = '';
 
-  @property({ type: Number })
+  @property({ type: Number, reflect: true, attribute: 'lat' })
   lat: number = 0;
 
-  @property({ type: Number })
+  @property({ type: Number, reflect: true, attribute: 'lng' })
   lng: number = 0;
 
-  @property({ type: Number })
+  @property({ type: Number, reflect: true, attribute: 'zoom' })
   zoom = 10;
 
-  @property({ type: Array })
-  styles;
+  @property({ type: Array, attribute: 'map-styles' })
+  mapStyles = [];
 
   @state()
   loader!: Loader;
@@ -63,7 +63,7 @@ export class MyElement extends LitElement {
       this.map = new google.maps.Map(this.mapContainer, {
         center: { lat: this.lat, lng: this.lng },
         zoom: this.zoom,
-        styles: this.styles,
+        styles: this.mapStyles,
       });
     });
   }
