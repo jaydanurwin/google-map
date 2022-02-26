@@ -13,8 +13,8 @@ export class GoogleMap extends LitElement {
     }
 
     #map {
-      width: 100%;
-      height: 350px;
+      width: inherit;
+      height: inherit;
     }
   `;
 
