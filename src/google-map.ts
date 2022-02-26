@@ -3,6 +3,7 @@ import { customElement, property, state, query } from 'lit/decorators.js';
 import { Loader } from '@googlemaps/js-api-loader';
 import { GoogleMapMarker } from './GoogleMapMarker';
 
+export { Loader } from '@googlemaps/js-api-loader';
 export { GoogleMapMarker } from './GoogleMapMarker';
 
 @customElement('google-map')
@@ -69,7 +70,9 @@ export class GoogleMap extends LitElement {
   }
 
   render() {
-    return html`<div id="map"></div> `;
+    return html`
+      <div id="map"></div>
+    `;
   }
 
   public addMarkers(markers: GoogleMapMarker[]) {
